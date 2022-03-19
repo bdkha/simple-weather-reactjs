@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Simple Weather
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Preview
+![preview](./public/preview.png)
+
+## Started
+Git clone
+``````
+https://github.com/bdkha/simple-weather-reactjs.git
+````````
 
 ## Available Scripts
 
