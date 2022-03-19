@@ -1,0 +1,54 @@
+.weather {
+    width: 70%;
+    height: 100vh;
+    
+}
+.weather_info {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+    align-items: center;
+}
+h1 {
+    font-size: 100px;
+    color: #fff;
+    font-weight: 200;
+    padding: 20px;
+}
+.city_info {
+    padding: 20px;
+}
+.city {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 200;
+    padding-left: 10px ;
+    padding-right: 10px;
+}
+.clock {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 200;
+    padding-left: 10px ;
+    padding-right: 10px;
+}
+.description {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon {
+    margin-left: auto;
+    margin-right: auto;
+}
+.des {
+    font-size: 40px;
+    color: #fff;
+    font-weight: 200;
+    padding: 10px;
+}
