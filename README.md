@@ -3,6 +3,9 @@
 ## Preview
 ![preview](./public/preview.png)
 
+## Deploy web
+[Click here](https://simple-weather-reactjs-d47ifcr16-bdkha.vercel.app/) to view deploy web
+
 ## Started
 Git clone
 ``````
