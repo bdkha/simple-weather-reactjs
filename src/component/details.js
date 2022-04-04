@@ -12,15 +12,15 @@ function Detail({ data }) {
                 </div>
                 <div className='row'>
                     <p className='left'>Humidity</p>
-                    <p className='right'>26%</p>
+                    <p className='right'>{data.main.humidity}</p>
                 </div>
                 <div className='row'>
                     <p className='left'>Wind</p>
                     <p className='right'>{data.wind.speed}</p>
                 </div>
                 <div className='row'>
-                    <p className='left'>Rain</p>
-                    <p className='right'>26%</p>
+                    <p className='left'>Feel like</p>
+                    <p className='right'>{Math.round(data.main.feels_like) + '°C'}</p>
                 </div>
             </div>
         </div>
