@@ -13,7 +13,7 @@ function App() {
   const [lat, setLat] = useState(21.028511);
   const [long, setLong] = useState(105.804817);
   const [data, setData] = useState(null);
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState('');
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -72,7 +72,7 @@ function App() {
   }, []);
 
   return (
-    lat && long ? (
+    data != undefined ? (
       <div className='App'>
         <div className='header'>
           <div className='header-inner'>
@@ -94,9 +94,22 @@ function App() {
     ) : (
       <div className='App'>
         <div className='header'>
+          <div className='header-inner'>
+            <div className='logo-inner'>
+              <a href='/' className='link'>
+                <img src={logo} alt='logo' />
+                <div className='app-name'>Simple Weather</div>
+              </a>
+            </div>
+            <div className='search'>
+              <input type='text' placeholder='Enter the city name' value={city} onChange={(e) => setCity(e.target.value)} />
+              < FontAwesomeIcon icon={faSearch} color='#fff' size='lg' className='icon-search' onClick={handleSubmit} />
+            </div>
+          </div>
         </div>
-        <h1>Loading...</h1>
-        {loadData()}
+        <h1>Loading
+        </h1>
+
       </div>
     )
   );
