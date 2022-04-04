@@ -1,9 +1,11 @@
-
 import './App.css';
 import Weather from './component/weather';
 import Detail from './component/details';
 import { useEffect, useState } from 'react';
 import { geolocated } from 'react-geolocated';
+import logo from '../src/logo192.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?';
@@ -34,18 +36,34 @@ function App() {
     }
   };
 
+  const handleSubmit = () => {
+    loadData(city);
+  }
 
 
 
-  async function loadData() {
-    try {
-      getLocation();
-      const response = await fetch(`${baseUrl}lat=${lat}&lon=${long}&units=metric&appid=${appId}`);
-      const data = await response.json();
-      setData(data);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
+
+  async function loadData(city) {
+    if (city == undefined) {
+      try {
+        getLocation();
+        const response = await fetch(`${baseUrl}lat=${lat}&lon=${long}&units=metric&appid=${appId}`);
+        const data = await response.json();
+        setData(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const response = await fetch(`${baseUrl}q=${city}&units=metric&appid=${appId}`);
+        const data = await response.json();
+        setData(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+
     }
   }
 
@@ -56,12 +74,27 @@ function App() {
   return (
     lat && long ? (
       <div className='App'>
+        <div className='header'>
+          <div className='header-inner'>
+            <div className='logo-inner'>
+              <a href='/' className='link'>
+                <img src={logo} alt='logo' />
+                <div className='app-name'>Simple Weather</div>
+              </a>
+            </div>
+            <div className='search'>
+              <input type='text' placeholder='Enter the city name' value={city} onChange={(e) => setCity(e.target.value)} />
+              < FontAwesomeIcon icon={faSearch} color='#fff' size='lg' className='icon-search' onClick={handleSubmit} />
+            </div>
+          </div>
+        </div>
         <Weather data={data} />
         <Detail data={data} />
-
       </div>
     ) : (
       <div className='App'>
+        <div className='header'>
+        </div>
         <h1>Loading...</h1>
         {loadData()}
       </div>
