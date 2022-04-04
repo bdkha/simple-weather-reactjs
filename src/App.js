@@ -40,6 +40,12 @@ function App() {
     loadData(city);
   }
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  }
+
 
 
 
@@ -83,7 +89,7 @@ function App() {
               </a>
             </div>
             <div className='search'>
-              <input type='text' placeholder='Enter the city name' value={city} onChange={(e) => setCity(e.target.value)} />
+              <input type='text' placeholder='Enter the city name' value={city} onChange={(e) => setCity(e.target.value)} onKeyUp={handleKeyPress} />
               < FontAwesomeIcon icon={faSearch} color='#fff' size='lg' className='icon-search' onClick={handleSubmit} />
             </div>
           </div>
@@ -102,8 +108,8 @@ function App() {
               </a>
             </div>
             <div className='search'>
-              <input type='text' placeholder='Enter the city name' value={city} onChange={(e) => setCity(e.target.value)} />
-              < FontAwesomeIcon icon={faSearch} color='#fff' size='lg' className='icon-search' onClick={handleSubmit} />
+              <input type='text' placeholder='Enter the city name' value={city} onChange={(e) => setCity(e.target.value)} onKeyUp={handleSubmit} />
+              < FontAwesomeIcon icon={faSearch} color='#fff' size='lg' className='icon-search' onClick={handleKeyPress} />
             </div>
           </div>
         </div>
